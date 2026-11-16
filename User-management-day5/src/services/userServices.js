@@ -1,6 +1,6 @@
 import User from "../models/Schema.js";
 import { AppError } from "../utils/utils.js";
-import { hashPassword } from "../services/hasher.js";
+import { hashPassword } from "./hasher.js";
 import config from "../config/config.js";
 import jwt from "jsonwebtoken";
 
