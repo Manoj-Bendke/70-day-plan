@@ -22,8 +22,5 @@ async function startServer() {
     process.exit(1);
   }
 }
-mongoose.connection.on("error", () => {
-  throw new AppError("Connection failed",503)
-});
 app.use(errorHandler)
 startServer();

@@ -39,7 +39,18 @@ async function getUserByIdService(id) {
 }
 
 async function updateUserService(id, userData) {
-  const result = await User.findByIdAndUpdate(id, userData, { returnDocument: "after" });
+  const result = await User.findByIdAndUpdate(
+    id,
+    {
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      email: userData.email,
+    },
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
   if (!result) {
     throw new AppError("User not found", 404);
   }
