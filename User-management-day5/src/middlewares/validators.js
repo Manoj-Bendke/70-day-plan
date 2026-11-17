@@ -8,7 +8,7 @@ async function validateUser(req, res, next) {
   try {
     const result = await userValidationSchema.safeParse(req.body);
     if (!result.success) {
-      return res.json({
+      return res.status(400).json({
         success: false,
         errors: result.error.flatten().fieldErrors,
       });

@@ -33,7 +33,7 @@ async function signIn(req, res,next){
     }
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-     next(new AppError("Invalid password", 401));
+     return next(new AppError("Invalid password", 401));
     }
     const token = await generateToken({ id: user._id, email: user.email });
     res.status(200).json({ success: true, token });
