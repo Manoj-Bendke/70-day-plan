@@ -53,7 +53,3 @@ async function updateUserRoles(id, role) {
   }
   return result;
 }
-
-async function removeUser(id) {
-  
-}
